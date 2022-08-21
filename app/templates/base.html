@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CheckPoint</title>
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.css">
+    <link href="{{ url_for('static', filename='css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  </head>
+
+  <body>
+    <!-- App Header -->
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">CheckPoint</a>
+      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <input class="form-control form-control-dark w-100 mx-2" type="text" placeholder="Search" aria-label="Search">
+
+       <div class="dropdown mx-2">
+        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Settings
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">User Settings</a></li>
+          <li><a class="dropdown-item" href="#">School Admin</a></li>
+          <li><a class="dropdown-item" href="#">IT Admin</a></li>
+        </ul>
+      </div>
+
+            <div class="navbar-nav">
+        <div class="nav-item text-nowrap">
+          <a class="nav-link px-3" href="#">Sign out</a>
+        </div>
+      </div>
+    </header>
+    <!-- App Menu -->
+    <div class="container-fluid">
+      <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+          <div class="position-sticky pt-3 mt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">
+                  <span data-feather="bar-chart"></span>
+                  Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/students">
+                  <i data-feather="users" style="font-size: 1.2rem;"></i>
+                  Students
+                </a>
+              </li>
+              <li class="nav-item">
+                <button class="btn btn-toggle nav-link align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false" style="font-size: 1.2rem;">
+
+                  <i data-feather="database"></i>
+                  Datasets
+
+                </button>
+                <div class="collapse pl-3" id="dashboard-collapse">
+                  <ul class="btn-toggle-nav ps-5 pb-1 small list-unstyled">
+                    <li><a href="/datasets/assessments" class="link-dark rounded">Assessments</a></li>
+                    <li><a href="/datasets/checkpoints" class="link-dark rounded">Checkpoints</a></li>
+                    <li><a href="/datasets/reflections" class="link-dark rounded">Reflections</a></li>
+                    <li><a href="/datasets/capabilities" class="link-dark rounded">Capabilities</a></li>
+                    <li><a href="/datasets/grades" class="link-dark rounded">Grades</a></li>
+                  </ul>
+                </div>
+
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/reports">
+                  <span data-feather="file-text"></span>
+                  Reports
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <script>
+          feather.replace()
+        </script>
+    <!-- Content Header -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">{{ title }}</h1>
+            {% block toolbar %}{% endblock %}
+          </div>
+    <!-- Content Area -->
+      {% block content %}{% endblock %}
+        </main>
+      </div>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+    <script src="dashboard.js"></script>
+    <script src="sidebars.js"></script>
+    {% block scripts %}{% endblock %}
+  </body>
+</html>

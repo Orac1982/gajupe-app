@@ -1,0 +1,7 @@
+flask
+python-dotenv
+flask_sqlalchemy
+flask-security
+faker
+pandas
+email_validator

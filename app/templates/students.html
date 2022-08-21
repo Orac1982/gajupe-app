@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block toolbar %}
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group me-2">
+                <a href="/datasets/import" class="btn btn-outline-secondary">Import</a>
+              </div>
+            </div>
+
+{% endblock %}
+{% block content %}
+
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Year Level</th>
+        <th>Home Group</th>
+        <th>DOB</th>
+        <th>USI</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      $('#data').DataTable({
+        ajax: '/api/students',
+        pageLength: 25,
+        columns: [
+          {data: 'first_name'},
+          {data: 'last_name'},
+          {data: 'year_level'},
+          {data: 'roll_group_code'},
+          {data: 'dob'},
+          {data: 'usi'}
+        ],
+      });
+    });
+  </script>
+{% endblock %}
+
