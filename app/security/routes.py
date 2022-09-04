@@ -8,6 +8,31 @@ security_bp = Blueprint(
 )
 
 
+@security_bp.route("/login")
+def login():
+    pass
+
+
+@security_bp.route("/callback")
+def callback():
+    pass
+
+
+@security_bp.route("/logout")
+def logout():
+    pass
+
+
+@security_bp.route("/")
+def index():
+    pass
+
+
+@security_bp.route("/protected_area")
+def protected_area():
+    pass
+
+
 # @security_bp.route('/register', methods=['POST', 'GET'])
 # def register():
 #     if request.method == 'POST':
