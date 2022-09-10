@@ -1,5 +1,4 @@
 from flask import Flask
-from flask_security import Security, SQLAlchemyUserDatastore
 from .api.routes import api_bp
 from .dashboards.routes import dashboards_bp
 from .students.routes import students_bp

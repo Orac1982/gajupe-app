@@ -1,110 +1,319 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CheckPoint</title>
-    <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.css">
-    <link href="{{ url_for('static', filename='css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-  </head>
 
-  <body>
-    <!-- App Header -->
-    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">CheckPoint</a>
-      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <input class="form-control form-control-dark w-100 mx-2" type="text" placeholder="Search" aria-label="Search">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="GaJuPy">
+	<title>Default Dashboard | AppStack - Admin &amp; Dashboard Template</title>
+	<!-- Choose your prefered color scheme -->
+	<link href="static/theme/appstack333/dist/css/light.css" rel="stylesheet">
+	<!-- <link href="app/static/theme/appstack333/css/dark.css" rel="stylesheet"> -->
+</head>
+<!--
+  HOW TO USE:
+  data-theme: default (default), dark, light
+  data-layout: fluid (default), boxed
+  data-sidebar-position: left (default), right
+  data-sidebar-behavior: sticky (default), fixed, compact
+-->
 
-       <div class="dropdown mx-2">
-        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          Settings
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#">User Settings</a></li>
-          <li><a class="dropdown-item" href="#">School Admin</a></li>
-          <li><a class="dropdown-item" href="#">IT Admin</a></li>
-        </ul>
-      </div>
-
-            <div class="navbar-nav">
-        <div class="nav-item text-nowrap">
-          <a class="nav-link px-3" href="#">Sign out</a>
-        </div>
-      </div>
-    </header>
-    <!-- App Menu -->
-    <div class="container-fluid">
-      <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-          <div class="position-sticky pt-3 mt-3">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">
-                  <span data-feather="bar-chart"></span>
-                  Dashboard
+<body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-behavior="sticky">
+    <div class="wrapper">
+		<nav id="sidebar" class="sidebar">
+			<div class="sidebar-content js-simplebar">
+                <!-- Branding -->
+				<a class="sidebar-brand" href="index.html">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+                    <path d="M19.4,4.1l-9-4C10.1,0,9.9,0,9.6,0.1l-9,4C0.2,4.2,0,4.6,0,5s0.2,0.8,0.6,0.9l9,4C9.7,10,9.9,10,10,10s0.3,0,0.4-0.1l9-4
+                      C19.8,5.8,20,5.4,20,5S19.8,4.2,19.4,4.1z"/>
+                    <path d="M10,15c-0.1,0-0.3,0-0.4-0.1l-9-4c-0.5-0.2-0.7-0.8-0.5-1.3c0.2-0.5,0.8-0.7,1.3-0.5l8.6,3.8l8.6-3.8c0.5-0.2,1.1,0,1.3,0.5
+                      c0.2,0.5,0,1.1-0.5,1.3l-9,4C10.3,15,10.1,15,10,15z"/>
+                    <path d="M10,20c-0.1,0-0.3,0-0.4-0.1l-9-4c-0.5-0.2-0.7-0.8-0.5-1.3c0.2-0.5,0.8-0.7,1.3-0.5l8.6,3.8l8.6-3.8c0.5-0.2,1.1,0,1.3,0.5
+                      c0.2,0.5,0,1.1-0.5,1.3l-9,4C10.3,20,10.1,20,10,20z"/>
+                  </svg>
+                  <span class="align-middle mr-3">GaJuPy AppEngine</span>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/students">
-                  <i data-feather="users" style="font-size: 1.2rem;"></i>
-                  Students
+                <!-- Sidebar Nav -->
+				<ul class="sidebar-nav">
+
+
+
+
+
+					<li class="sidebar-header">
+						School
+					</li>
+					<li class="sidebar-item active">
+						<a href="#dashboards" data-toggle="collapse" class="sidebar-link">
+                            <i class="align-middle" data-feather="sliders"></i>
+                            <span class="align-middle">Dashboards</span>
+                            <span class="badge badge-sidebar-primary">5</span>
+                        </a>
+					</li>
+					<li class="sidebar-item">
+						<a href="#auth" data-toggle="collapse" class="sidebar-link collapsed">
+              <i class="align-middle" data-feather="users"></i> <span class="align-middle">Students</span>
+            </a>
+						<ul id="auth" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+							<li class="sidebar-item"><a class="sidebar-link" href="pages-sign-in.html">Sign In</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="pages-sign-up.html">Sign Up</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="pages-reset-password.html">Reset Password</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="pages-404.html">404 Page</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="pages-500.html">500 Page</a></li>
+						</ul>
+					</li>
+                    <li class="sidebar-item">
+						<a href="#auth" data-toggle="collapse" class="sidebar-link collapsed">
+                          <i class="align-middle" data-feather="users"></i> <span class="align-middle">Datasets</span>
+                        </a>
+					</li>
+                    <li class="sidebar-item">
+						<a href="#auth" data-toggle="collapse" class="sidebar-link collapsed">
+                          <i class="align-middle" data-feather="users"></i> <span class="align-middle">Workflows</span>
+                        </a>
+					</li>
+					<li class="sidebar-item">
+						<a href="#documentation" data-toggle="collapse" class="sidebar-link collapsed">
+              <i class="align-middle" data-feather="book-open"></i> <span class="align-middle">Reports</span>
+            </a>
+						<ul id="documentation" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+							<li class="sidebar-item"><a class="sidebar-link" href="docs-introduction.html">Introduction</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="docs-installation.html">Getting Started</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="docs-customization.html">Customization</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="docs-plugins.html">Plugins</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="docs-changelog.html">Changelog</a></li>
+						</ul>
+					</li>
+
+                  <li class="sidebar-header">
+						Admin
+					</li>
+					<li class="sidebar-item active">
+						<a href="#dashboards" data-toggle="collapse" class="sidebar-link">
+                            <i class="align-middle" data-feather="sliders"></i>
+                            <span class="align-middle">Settings</span>
+                            <span class="badge badge-sidebar-primary">5</span>
+                        </a>
+					</li>
+					<li class="sidebar-item">
+						<a href="#auth" data-toggle="collapse" class="sidebar-link collapsed">
+              <i class="align-middle" data-feather="users"></i> <span class="align-middle">Security</span>
+            </a>
+						<ul id="auth" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+							<li class="sidebar-item"><a class="sidebar-link" href="pages-sign-in.html">Sign In</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="pages-sign-up.html">Sign Up</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="pages-reset-password.html">Reset Password</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="pages-404.html">404 Page</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="pages-500.html">500 Page</a></li>
+						</ul>
+					</li>
+					<li class="sidebar-item">
+						<a href="#documentation" data-toggle="collapse" class="sidebar-link collapsed">
+              <i class="align-middle" data-feather="book-open"></i> <span class="align-middle">Support</span>
+            </a>
+						<ul id="documentation" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+							<li class="sidebar-item"><a class="sidebar-link" href="docs-introduction.html">Introduction</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="docs-installation.html">Getting Started</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="docs-customization.html">Customization</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="docs-plugins.html">Plugins</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="docs-changelog.html">Changelog</a></li>
+						</ul>
+					</li>
+
+
+
+                </ul>
+
+<!--				<div class="sidebar-cta">-->
+<!--					<div class="sidebar-cta-content">-->
+<!--						<strong class="d-inline-block mb-2">Monthly Sales Report</strong>-->
+<!--						<div class="mb-3 text-sm">-->
+<!--							Your monthly sales report is ready for download!-->
+<!--						</div>-->
+<!--						<a href="https://themes.getbootstrap.com/product/appstack-responsive-admin-template/" class="btn btn-primary btn-block" target="_blank">Download</a>-->
+<!--					</div>-->
+<!--				</div>-->
+			</div>
+		</nav>
+
+
+		<div class="main">
+          <!--Top Navbar-->
+			<nav class="navbar navbar-expand navbar-light navbar-bg">
+                <!--Sidebar Toggle-->
+				<a class="sidebar-toggle">
+                  <i class="hamburger align-self-center"></i>
                 </a>
-              </li>
-              <li class="nav-item">
-                <button class="btn btn-toggle nav-link align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false" style="font-size: 1.2rem;">
+                <!--Search box -->
+				<form class="d-none d-sm-inline-block">
+					<div class="input-group input-group-navbar">
+						<input type="text" class="form-control" placeholder="Search projects…" aria-label="Search">
+						<div class="input-group-append">
+							<button class="btn" type="button">
+                              <i class="align-middle" data-feather="search"></i>
+                            </button>
+						</div>
+					</div>
+				</form>
 
-                  <i data-feather="database"></i>
-                  Datasets
 
-                </button>
-                <div class="collapse pl-3" id="dashboard-collapse">
-                  <ul class="btn-toggle-nav ps-5 pb-1 small list-unstyled">
-                    <li><a href="/datasets/assessments" class="link-dark rounded">Assessments</a></li>
-                    <li><a href="/datasets/checkpoints" class="link-dark rounded">Checkpoints</a></li>
-                    <li><a href="/datasets/reflections" class="link-dark rounded">Reflections</a></li>
-                    <li><a href="/datasets/capabilities" class="link-dark rounded">Capabilities</a></li>
-                    <li><a href="/datasets/grades" class="link-dark rounded">Grades</a></li>
-                  </ul>
-                </div>
 
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/reports">
-                  <span data-feather="file-text"></span>
-                  Reports
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <script>
-          feather.replace()
-        </script>
-    <!-- Content Header -->
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">{{ title }}</h1>
-            {% block toolbar %}{% endblock %}
-          </div>
-    <!-- Content Area -->
-      {% block content %}{% endblock %}
-        </main>
-      </div>
-    </div>
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
-    <script src="dashboard.js"></script>
-    <script src="sidebars.js"></script>
-    {% block scripts %}{% endblock %}
-  </body>
+
+				<div class="navbar-collapse collapse">
+					<ul class="navbar-nav navbar-align">
+
+                        <!--Sidebar Toggle-->
+						<li class="nav-item dropdown">
+							<a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-toggle="dropdown">
+								<div class="position-relative">
+									<i class="align-middle" data-feather="bell-off"></i>
+								</div>
+							</a>
+							<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="alertsDropdown">
+								<div class="dropdown-menu-header">
+									4 New Notifications
+								</div>
+								<div class="list-group">
+									<a href="#" class="list-group-item">
+										<div class="row no-gutters align-items-center">
+											<div class="col-2">
+												<i class="text-danger" data-feather="alert-circle"></i>
+											</div>
+											<div class="col-10">
+												<div class="text-dark">Update completed</div>
+												<div class="text-muted small mt-1">Restart server 12 to complete the update.</div>
+												<div class="text-muted small mt-1">2h ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="list-group-item">
+										<div class="row no-gutters align-items-center">
+											<div class="col-2">
+												<i class="text-warning" data-feather="bell"></i>
+											</div>
+											<div class="col-10">
+												<div class="text-dark">Lorem ipsum</div>
+												<div class="text-muted small mt-1">Aliquam ex eros, imperdiet vulputate hendrerit et.</div>
+												<div class="text-muted small mt-1">6h ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="list-group-item">
+										<div class="row no-gutters align-items-center">
+											<div class="col-2">
+												<i class="text-primary" data-feather="home"></i>
+											</div>
+											<div class="col-10">
+												<div class="text-dark">Login from 192.186.1.1</div>
+												<div class="text-muted small mt-1">8h ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="list-group-item">
+										<div class="row no-gutters align-items-center">
+											<div class="col-2">
+												<i class="text-success" data-feather="user-plus"></i>
+											</div>
+											<div class="col-10">
+												<div class="text-dark">New connection</div>
+												<div class="text-muted small mt-1">Anna accepted your request.</div>
+												<div class="text-muted small mt-1">12h ago</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="dropdown-menu-footer">
+									<a href="#" class="text-muted">Show all notifications</a>
+								</div>
+							</div>
+						</li>
+
+
+                        <!--Sidebar Toggle-->
+						<li class="nav-item dropdown">
+							<a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-toggle="dropdown">
+
+                <i class="align-middle" data-feather="settings"></i>
+              </a>
+
+							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
+                <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded-circle mr-1" alt="Chris Wood" /> <span class="text-dark">Chris Wood</span>
+              </a>
+							<div class="dropdown-menu dropdown-menu-right">
+								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle mr-1" data-feather="user"></i> Profile</a>
+								<a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="pie-chart"></i> Analytics</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="pages-settings.html">Settings & Privacy</a>
+								<a class="dropdown-item" href="#">Help</a>
+								<a class="dropdown-item" href="#">Sign out</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+
+			</nav>
+
+			<main class="content">
+				<div class="container-fluid p-0">
+
+					<div class="row mb-2 mb-xl-3">
+						<div class="col-auto d-none d-sm-block">
+							<h3>Dashboard</h3>
+						</div>
+
+                      {% block content %}{% endblock %}
+
+
+					</div>
+				</div>
+			</main>
+
+			<footer class="footer">
+				<div class="container-fluid">
+					<div class="row text-muted">
+						<div class="col-6 text-left">
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Support</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Help Center</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Privacy</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Terms of Service</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-6 text-right">
+							<p class="mb-0">
+								&copy; 2022 - <a href="index.html" class="text-muted">AppStack</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+
+	<script src="static/theme/appstack333/dist/js/app.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			$("#datatables-dashboard-projects").DataTable({
+				pageLength: 6,
+				lengthChange: false,
+				bFilter: false,
+				autoWidth: false
+			});
+		});
+	</script>
+
+</body>
+
 </html>
